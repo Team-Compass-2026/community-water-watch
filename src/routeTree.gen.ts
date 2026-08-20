@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
+import { Route as CitizenAlertRouteImport } from './routes/citizen.alert'
+import { Route as CitizenMapRouteImport } from './routes/citizen.map'
+import { Route as CitizenSubmittedRouteImport } from './routes/citizen.submitted'
+import { Route as OrgIndexRouteImport } from './routes/org.index'
+import { Route as CitizenReportIdRouteImport } from './routes/citizen.report.$id'
+import { Route as CitizenReportNewRouteImport } from './routes/citizen.report.new'
+import { Route as OrgTownshipIdRouteImport } from './routes/org.township.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitizenIndexRoute = CitizenIndexRouteImport.update({
+  id: '/citizen/',
+  path: '/citizen/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenAlertRoute = CitizenAlertRouteImport.update({
+  id: '/citizen/alert',
+  path: '/citizen/alert',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenMapRoute = CitizenMapRouteImport.update({
+  id: '/citizen/map',
+  path: '/citizen/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenSubmittedRoute = CitizenSubmittedRouteImport.update({
+  id: '/citizen/submitted',
+  path: '/citizen/submitted',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrgIndexRoute = OrgIndexRouteImport.update({
+  id: '/org/',
+  path: '/org/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenReportIdRoute = CitizenReportIdRouteImport.update({
+  id: '/citizen/report/$id',
+  path: '/citizen/report/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenReportNewRoute = CitizenReportNewRouteImport.update({
+  id: '/citizen/report/new',
+  path: '/citizen/report/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrgTownshipIdRoute = OrgTownshipIdRouteImport.update({
+  id: '/org/township/$id',
+  path: '/org/township/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/citizen/alert': typeof CitizenAlertRoute
+  '/citizen/map': typeof CitizenMapRoute
+  '/citizen/submitted': typeof CitizenSubmittedRoute
+  '/citizen/': typeof CitizenIndexRoute
+  '/org/': typeof OrgIndexRoute
+  '/citizen/report/$id': typeof CitizenReportIdRoute
+  '/citizen/report/new': typeof CitizenReportNewRoute
+  '/org/township/$id': typeof OrgTownshipIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/citizen/alert': typeof CitizenAlertRoute
+  '/citizen/map': typeof CitizenMapRoute
+  '/citizen/submitted': typeof CitizenSubmittedRoute
+  '/citizen': typeof CitizenIndexRoute
+  '/org': typeof OrgIndexRoute
+  '/citizen/report/$id': typeof CitizenReportIdRoute
+  '/citizen/report/new': typeof CitizenReportNewRoute
+  '/org/township/$id': typeof OrgTownshipIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/citizen/alert': typeof CitizenAlertRoute
+  '/citizen/map': typeof CitizenMapRoute
+  '/citizen/submitted': typeof CitizenSubmittedRoute
+  '/citizen/': typeof CitizenIndexRoute
+  '/org/': typeof OrgIndexRoute
+  '/citizen/report/$id': typeof CitizenReportIdRoute
+  '/citizen/report/new': typeof CitizenReportNewRoute
+  '/org/township/$id': typeof OrgTownshipIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/citizen/alert'
+    | '/citizen/map'
+    | '/citizen/submitted'
+    | '/citizen/'
+    | '/org/'
+    | '/citizen/report/$id'
+    | '/citizen/report/new'
+    | '/org/township/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/citizen/alert'
+    | '/citizen/map'
+    | '/citizen/submitted'
+    | '/citizen'
+    | '/org'
+    | '/citizen/report/$id'
+    | '/citizen/report/new'
+    | '/org/township/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/citizen/alert'
+    | '/citizen/map'
+    | '/citizen/submitted'
+    | '/citizen/'
+    | '/org/'
+    | '/citizen/report/$id'
+    | '/citizen/report/new'
+    | '/org/township/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CitizenAlertRoute: typeof CitizenAlertRoute
+  CitizenMapRoute: typeof CitizenMapRoute
+  CitizenSubmittedRoute: typeof CitizenSubmittedRoute
+  CitizenIndexRoute: typeof CitizenIndexRoute
+  OrgIndexRoute: typeof OrgIndexRoute
+  CitizenReportIdRoute: typeof CitizenReportIdRoute
+  CitizenReportNewRoute: typeof CitizenReportNewRoute
+  OrgTownshipIdRoute: typeof OrgTownshipIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/citizen/': {
+      id: '/citizen/'
+      path: '/citizen'
+      fullPath: '/citizen/'
+      preLoaderRoute: typeof CitizenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/alert': {
+      id: '/citizen/alert'
+      path: '/citizen/alert'
+      fullPath: '/citizen/alert'
+      preLoaderRoute: typeof CitizenAlertRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/map': {
+      id: '/citizen/map'
+      path: '/citizen/map'
+      fullPath: '/citizen/map'
+      preLoaderRoute: typeof CitizenMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/submitted': {
+      id: '/citizen/submitted'
+      path: '/citizen/submitted'
+      fullPath: '/citizen/submitted'
+      preLoaderRoute: typeof CitizenSubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/org/': {
+      id: '/org/'
+      path: '/org'
+      fullPath: '/org/'
+      preLoaderRoute: typeof OrgIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/report/$id': {
+      id: '/citizen/report/$id'
+      path: '/citizen/report/$id'
+      fullPath: '/citizen/report/$id'
+      preLoaderRoute: typeof CitizenReportIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/report/new': {
+      id: '/citizen/report/new'
+      path: '/citizen/report/new'
+      fullPath: '/citizen/report/new'
+      preLoaderRoute: typeof CitizenReportNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/org/township/$id': {
+      id: '/org/township/$id'
+      path: '/org/township/$id'
+      fullPath: '/org/township/$id'
+      preLoaderRoute: typeof OrgTownshipIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CitizenAlertRoute: CitizenAlertRoute,
+  CitizenMapRoute: CitizenMapRoute,
+  CitizenSubmittedRoute: CitizenSubmittedRoute,
+  CitizenIndexRoute: CitizenIndexRoute,
+  OrgIndexRoute: OrgIndexRoute,
+  CitizenReportIdRoute: CitizenReportIdRoute,
+  CitizenReportNewRoute: CitizenReportNewRoute,
+  OrgTownshipIdRoute: OrgTownshipIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
