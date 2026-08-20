@@ -1,4 +1,5 @@
 import { CATEGORY_META, RISK_META, type DemoReport, type RiskLevel } from "@/data/demo";
+import { CategoryIcon } from "./CategoryIcon";
 import { cn } from "@/lib/utils";
 
 export function WardMap({
@@ -101,10 +102,10 @@ export function WardMap({
       </svg>
 
       <div className="pointer-events-none absolute bottom-2 left-2 flex flex-wrap gap-2 rounded-lg bg-card/90 px-2 py-1.5 text-[10px] text-muted-foreground shadow-sm">
-        {Object.entries(CATEGORY_META).map(([k, m]) => (
+        {(Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_META)[]).map((k) => (
           <span key={k} className="flex items-center gap-1">
-            <span aria-hidden>{m.emoji}</span>
-            {m.short}
+            <CategoryIcon category={k} className="size-3" />
+            {CATEGORY_META[k].short}
           </span>
         ))}
       </div>

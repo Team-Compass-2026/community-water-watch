@@ -72,11 +72,18 @@ function CitizenMap() {
             key={f}
             onClick={() => setFilter(f)}
             className={cn(
-              "rounded-full border px-2.5 py-1 text-xs transition-colors",
+              "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs transition-colors",
               filter === f ? "border-primary bg-primary text-primary-foreground" : "bg-card",
             )}
           >
-            {f === "all" ? "All" : `${CATEGORY_META[f].emoji} ${CATEGORY_META[f].short}`}
+            {f === "all" ? (
+              "All"
+            ) : (
+              <>
+                <CategoryIcon category={f} className="size-3" />
+                {CATEGORY_META[f].short}
+              </>
+            )}
           </button>
         ))}
       </div>

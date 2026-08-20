@@ -78,9 +78,7 @@ function NewReport() {
                   draft.category === c ? "border-primary ring-2 ring-ring/20" : "hover:border-primary/40",
                 )}
               >
-                <span className="text-xl" aria-hidden>
-                  {CATEGORY_META[c].emoji}
-                </span>
+                <CategoryIcon category={c} className="size-5 text-primary" />
                 <p className="mt-1 text-sm font-medium">{CATEGORY_META[c].label}</p>
                 <p className="text-xs text-muted-foreground">{CATEGORY_META[c].hint}</p>
               </button>

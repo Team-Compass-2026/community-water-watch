@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { CheckCircle2, Clock, MapPin } from "lucide-react";
 import { CATEGORY_META, type DemoReport } from "@/data/demo";
 import { ReportPhoto } from "./ReportPhoto";
+import { CategoryIcon } from "./CategoryIcon";
 import { cn } from "@/lib/utils";
 
 export function ReportListItem({
@@ -25,8 +26,9 @@ export function ReportListItem({
       <ReportPhoto kind={report.photo} className="size-16 shrink-0" label="" />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground">
-            {CATEGORY_META[report.category].emoji} {CATEGORY_META[report.category].short}
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+            <CategoryIcon category={report.category} />
+            {CATEGORY_META[report.category].short}
           </span>
           {report.status === "pending" ? (
             <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
