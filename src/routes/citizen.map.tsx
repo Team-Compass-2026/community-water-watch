@@ -4,6 +4,7 @@ import { Plus } from "lucide-react";
 import { CitizenShell } from "@/components/waterwatch/Shells";
 import { WardMap } from "@/components/waterwatch/WardMap";
 import { ReportListItem } from "@/components/waterwatch/ReportListItem";
+import { CategoryIcon } from "@/components/waterwatch/CategoryIcon";
 import { RiskBadge } from "@/components/waterwatch/RiskBadge";
 import { Button } from "@/components/ui/button";
 import { useDemo } from "@/lib/demo-store";

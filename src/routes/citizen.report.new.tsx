@@ -3,6 +3,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Camera, Check, ChevronLeft, MapPin, ShieldCheck } from "lucide-react";
 import { CitizenShell } from "@/components/waterwatch/Shells";
 import { ReportPhoto } from "@/components/waterwatch/ReportPhoto";
+import { CategoryIcon } from "@/components/waterwatch/CategoryIcon";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
